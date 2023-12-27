@@ -12,3 +12,18 @@ body {
   color: #212121;
   line-height: 1.5;
 }
+
+.item {
+  background-color: #F6F6FE;
+  border-radius: 8px;
+  list-style-type: none;
+}
+
+.item h2 {
+  color: #2E2F42;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 133.3;
+  letter-spacing: 0.96px;
+}
