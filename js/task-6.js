@@ -27,6 +27,8 @@ function createBoxes(amount) {
 }
 
 function destroyBoxes() {
+  const divs = boxes.querySelectorAll('div');
+  
   divs.forEach(item => {
     item.remove();
   });
@@ -36,7 +38,6 @@ const createButton = document.querySelector('button[data-create]');
 const destroyButton = document.querySelector('button[data-destroy]');
 const input = document.querySelector('input');
 const boxes = document.querySelector('#boxes');
-const divs = boxes.querySelectorAll('div');
 
 createButton.addEventListener('click', () => {
   if (input.value >= 1 && input.value <= 100) {
