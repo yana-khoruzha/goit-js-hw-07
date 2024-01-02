@@ -29,17 +29,12 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
+let markup = ''
 
 images.forEach((item) => {
-  const listItem = document.createElement('li');
-  gallery.append(listItem);
-  const image = document.createElement('img');
-  image.src = item.url;
-  image.alt = item.alt;
-  image.width = 360;
-  image.hight = 300;
-  listItem.append(image);
-}
-)
+  markup += `<li><img src=${item.url} alt=${item.alt} width="360" height="300"></li>`;
+})
+
+gallery.innerHTML = markup;
 
 

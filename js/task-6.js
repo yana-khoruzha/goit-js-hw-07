@@ -5,33 +5,26 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) {
-  const arrayOfDiv = [];
-  for (let i = 0; i < amount; i++) {
-    const div = document.createElement('div');
-    div.style.backgroundColor = getRandomHexColor();
+  const numericAmount = Number(amount);
 
-    if (arrayOfDiv.length === 0) {
-      div.style.width = '30px';
-      div.style.height = '30px';
-      arrayOfDiv.push(div);
-    } else {
-      div.style.width =
-        +arrayOfDiv[arrayOfDiv.length - 1].style.width.slice(0, -2) + 10 + 'px';
-      div.style.height =
-        +arrayOfDiv[arrayOfDiv.length - 1].style.width.slice(0, -2) + 10 + 'px';
-      arrayOfDiv.push(div);
+  if (numericAmount >= 1 && numericAmount <= 100) {
+    destroyBoxes();
+
+    let currentSize = 30;
+    for (let i = 0; i < numericAmount; i++) {
+      const div = document.createElement('div');
+      div.style.backgroundColor = getRandomHexColor();
+      div.style.width = `${currentSize}px`;
+      div.style.height = `${currentSize}px`;
+      boxes.appendChild(div);
+      currentSize += 10;
     }
-
-    boxes.append(div);
+    input.value = '';
   }
 }
 
 function destroyBoxes() {
-  const divs = boxes.querySelectorAll('div');
-  
-  divs.forEach(item => {
-    item.remove();
-  });
+  boxes.innerHTML = '';
 }
 
 const createButton = document.querySelector('button[data-create]');
@@ -40,8 +33,10 @@ const input = document.querySelector('input');
 const boxes = document.querySelector('#boxes');
 
 createButton.addEventListener('click', () => {
-  if (input.value >= 1 && input.value <= 100) {
-    createBoxes(input.value);
+  const inputValue = input.value;
+
+  if (inputValue && inputValue >= 1 && inputValue <= 100) {
+    createBoxes(inputValue);
   }
 });
 

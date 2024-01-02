@@ -11,9 +11,9 @@ form.addEventListener('submit', event => {
   } else {
     obj.email = email;
     obj.password = password;
+    console.log(obj);
   }
 
-  console.log(obj);
   form.reset();
 });
 
