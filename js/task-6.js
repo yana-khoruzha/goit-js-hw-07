@@ -11,6 +11,7 @@ function createBoxes(amount) {
     destroyBoxes();
 
     let currentSize = 30;
+
     for (let i = 0; i < numericAmount; i++) {
       const div = document.createElement('div');
       div.style.backgroundColor = getRandomHexColor();
@@ -19,8 +20,9 @@ function createBoxes(amount) {
       boxes.appendChild(div);
       currentSize += 10;
     }
-    input.value = '';
   }
+
+  input.value = '';
 }
 
 function destroyBoxes() {
